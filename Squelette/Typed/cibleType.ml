@@ -28,7 +28,7 @@ let update_env e (Var x) v =
 let init_env = 
 	M.empty
 
-let eval_typ (e: typ_env) x : SourceType.typ =
+let eval_typ (e: typ_env) (Var x) : SourceType.typ =
   try (Gamma.find x e)
   with Not_found -> failwith "Var undifined"
 

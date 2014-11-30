@@ -3,5 +3,7 @@ let () =
   let prog = Comp.go_compile file in
   print_endline "Compiled program:";
   CiblePrinter.print_code prog;
+  print_newline();
   print_endline "Interpretation:";
-  CiblePrinter.print_val (CibleSem.top prog)
+  CiblePrinter.print_val (CibleSem.top prog);
+  print_newline()
