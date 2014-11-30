@@ -9,7 +9,7 @@ let rec compile (t: SourceType.term): CibleType.code =
 	| Minus (t1,t2) -> (compile t1) @ [Push] @ (compile t2) @ [Sub]
 	| Prod (t1,t2) -> (compile t1) @ [Push] @ (compile t2) @ [Mult]
 	| Div (t1,t2) -> (compile t1) @ [Push] @ (compile t2) @ [Div]
-	| Apply (t1,t2) -> [Pushenv] @ (compile t2) @ [Push] @ (compile t2) @ [CibleType.Apply] @ [Popenv]
+	| Apply (t1,t2) -> [Pushenv] @ (compile t2) @ [Push] @ (compile t1) @ [CibleType.Apply] @ [Popenv]
 	| Fun (x,t) -> [MkClose(None, Var x, (compile t))]
 	| FixFun (f,x,t) -> [MkClose(Some (Var f), Var x, (compile t))]
 	| Let (x,t1,t2) -> [Pushenv] @ (compile t1) @ [Extend (Var x)] @ (compile t2) @ [Popenv]
