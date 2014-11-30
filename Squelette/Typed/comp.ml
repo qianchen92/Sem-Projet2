@@ -1,9 +1,11 @@
 open CibleType
 open SourceType
 
-let rec type_checker (t: SourceType.term) (e: typ_env): SourceType.typ = TODO
+let rec type_checker (t: SourceType.term) (e: typ_env): SourceType.typ =
+  assert(false)
 
-let rec compile (t: SourceType.term): CibleType.code = TODO 
+let rec compile (t: SourceType.term): CibleType.code =
+  assert(false)
 
 let go_compile file =
   let prog = Utils.parse file in
