@@ -83,5 +83,7 @@ let rec compile (t: SourceType.term): CibleType.code =
 
 let go_compile file =
   let prog = Utils.parse file in
+  ignore(type_checker prog init_typ_env);
+  print_endline "Type checked";
   let _ = type_checker prog init_typ_env in
   compile prog
